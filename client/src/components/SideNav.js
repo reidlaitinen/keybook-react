@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 
 class SideNav extends React.Component {
 
-  state = {activeItem: null}
+  state = {activeItem: this.props.activeItem}
 
   handleItemClick = (e, { name }) => {
     this.setState({ activeItem: name });
