@@ -5,6 +5,11 @@ import {connect} from 'react-redux';
 
 class Search extends React.Component {
 
+  state = {searchString: ''}
+
+  handleSearchChange = (e) => {
+    this.setState({ searchString: e.target.value})
+  }
 
   render() {
 
@@ -15,8 +20,8 @@ class Search extends React.Component {
           <Grid.Column>
             <SideNav activeItem='search' />
           </Grid.Column>
-          <Grid.Column width={8}>
-            <Input fluid icon='search' placeholder='Search...' autofocus='true' />
+          <Grid.Column width={10}>
+            <Input fluid icon='search' placeholder='Search...' autofocus='true' onChange={this.handleSearchChange}/>
           </Grid.Column>
           <Grid.Column>
           </Grid.Column>
@@ -28,8 +33,10 @@ class Search extends React.Component {
 
 }
 
-const mapStateToProps = () => {
-
+const mapStateToProps = (state) => {
+  return {
+    
+  }
 }
 
 export default connect(mapStateToProps)(Search);
