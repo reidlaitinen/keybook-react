@@ -17,3 +17,4 @@
   category = @categories.sample
   Device.create(ip_address: ip, name: name, location: location, category: category)
 end
+
