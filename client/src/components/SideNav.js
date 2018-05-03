@@ -1,11 +1,16 @@
 import React from 'react';
 import {Menu} from 'semantic-ui-react';
+import {setView} from '../actions/sideNav';
+import {connect} from 'react-redux';
 
 class SideNav extends React.Component {
 
   state = {activeItem: null}
 
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+  handleItemClick = (e, { name }) => {
+    this.setState({ activeItem: name });
+    this.props.dispatch(setView(name));
+  }
 
   render() {
     let {activeItem} = this.state;    
@@ -27,4 +32,4 @@ class SideNav extends React.Component {
 
 }
 
-export default SideNav
+export default connect()(SideNav);
