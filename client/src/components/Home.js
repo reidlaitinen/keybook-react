@@ -12,7 +12,7 @@ class Home extends Component {
     return (
       <Fragment>
         <Header as='h1' textAlign='center'>KeyBook</Header>
-        <Grid columns='equal'>
+        <Grid columns='equal' padded>
           <Grid.Column>
             <Menu vertical>
               <Menu.Item name='search' active={activeItem === 'search'} onClick={this.handleItemClick}>
