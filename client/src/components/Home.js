@@ -1,5 +1,4 @@
-import React, { Component, Fragment } from 'react';
-import { Header, Grid, Input, Menu } from 'semantic-ui-react';
+import React, { Component} from 'react';
 import Search from './Search';
 import AllDevices from './AllDevices';
 import UserManagement from './UserManagement';
