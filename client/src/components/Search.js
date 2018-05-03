@@ -13,7 +13,7 @@ class Search extends React.Component {
         <Header as='h1' textAlign='center'>Search!</Header>
         <Grid columns='equal' padded>
           <Grid.Column>
-            <SideNav />
+            <SideNav activeItem='search' />
           </Grid.Column>
           <Grid.Column width={8}>
             <Input fluid icon='search' placeholder='Search...' autofocus='true' />
