@@ -21,7 +21,7 @@ class Search extends React.Component {
             <SideNav activeItem='search' />
           </Grid.Column>
           <Grid.Column width={10}>
-            <Input fluid icon='search' placeholder='Search...' autofocus='true' onChange={this.handleSearchChange}/>
+            <Input fluid icon='search' placeholder='Search...' autoFocus='true' onChange={this.handleSearchChange}/>
           </Grid.Column>
           <Grid.Column>
           </Grid.Column>

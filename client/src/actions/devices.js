@@ -2,7 +2,7 @@ import axios from 'axios';
 import { setFlash } from './flash';
 import { setHeaders } from './headers';
 
-export const getDevices = () => {
+export const getAllDevices = () => {
   return(dispatch) => {
     axios.get('/api/devices')
       .then( res => {

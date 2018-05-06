@@ -3,6 +3,7 @@ class Api::DevicesController < ApplicationController
   end
 
   def index
+    render json: Device.all
   end
 
   def update
