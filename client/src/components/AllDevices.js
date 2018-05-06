@@ -3,13 +3,13 @@ import { connect } from 'react-redux';
 import {Header, Grid, Divider} from 'semantic-ui-react';
 import SideNav from './SideNav';
 import DeviceList from './DeviceList';
-import {getAllDevices} from '../actions/devices';
+import { getAllDevices } from '../actions/devices';
 
 class AllDevices extends React.Component {
 
   componentDidMount() {
     console.log("dispatching getAllDevices")
-    this.props.dispatch(getAllDevices)
+    this.props.dispatch(getAllDevices())
   }
 
   render() {

@@ -13,7 +13,6 @@ const devices = (state = [], action) => {
     case 'DELETE_DEVICE':
       return state.filter(device => device.id !== action.device.id)
     default:
-      console.log('DEFAULT CASE')
       return state;
   }
 }
