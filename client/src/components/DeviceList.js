@@ -1,5 +1,6 @@
 import React from 'react';
 import {Header} from 'semantic-ui-react';
+import {connect} from 'react-redux';
 
 class DeviceList extends React.Component {
 
@@ -9,4 +10,10 @@ class DeviceList extends React.Component {
 
 }
 
-export default DeviceList;
+const mapStateToProps = (state) => {
+  return {
+    
+  }
+}
+
+export default connect(mapStateToProps)(DeviceList);
