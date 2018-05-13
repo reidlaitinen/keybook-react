@@ -1,6 +1,7 @@
 import React, {Fragment} from 'react';
-import {Header, Grid, Input} from 'semantic-ui-react';
+import {Header, Grid, Input, Divider} from 'semantic-ui-react';
 import SideNav from './SideNav';
+import DeviceList from './DeviceList';
 import {connect} from 'react-redux';
 
 class Search extends React.Component {
@@ -13,6 +14,8 @@ class Search extends React.Component {
 
   render() {
 
+    let {searchString } = this.state
+
     return (
       <Fragment>
         <Header as='h1' textAlign='center'>Search!</Header>
@@ -22,6 +25,8 @@ class Search extends React.Component {
           </Grid.Column>
           <Grid.Column width={10}>
             <Input fluid icon='search' placeholder='Search...' autoFocus='true' onChange={this.handleSearchChange}/>
+            <Divider hidden />
+            {searchString.length !== null && searchString.length >= 3 ? <DeviceList /> : null}
           </Grid.Column>
           <Grid.Column>
           </Grid.Column>

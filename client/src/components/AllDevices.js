@@ -22,7 +22,6 @@ class AllDevices extends React.Component {
             <SideNav activeItem='allDevices' />
           </Grid.Column>
           <Grid.Column width={10}>
-            <Header as='h2' textAlign='center'>All Devices Show Here</Header>
             <Divider hidden />
             <DeviceList />
           </Grid.Column>
