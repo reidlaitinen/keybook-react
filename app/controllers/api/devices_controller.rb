@@ -19,7 +19,11 @@ class Api::DevicesController < ApplicationController
   end
 
   def search
-    results = Device.select('*').where("devices.location LIKE '#{@query}'")
+    results = Device.where("
+        LOWER(name) LIKE ? 
+        OR ip_address LIKE ? 
+        OR category LIKE ?
+        OR LOWER(location) LIKE ?", "%#{@query}%", "%#{@query}%", "%#{@query}%", "%#{@query}%")
     render json: results
   end
 
