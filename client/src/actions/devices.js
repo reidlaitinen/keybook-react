@@ -13,3 +13,15 @@ export const getAllDevices = () => {
     });
   }
 }
+
+export const searchDevices = (query) => {
+  return(dispatch) => {
+    axios.get(`api/devices/search?query=${query}`)
+      .then( res => {
+        dispatch({ type: 'SEARCH_DEVICES', devices: res.data, headers: res.headers })
+      }).catch( ({headers }) => {
+        dispatch(setHeaders(headers));
+        dispatch(setFlash('Failed to Retrieve Devices', 'red'));
+      });
+  }
+}

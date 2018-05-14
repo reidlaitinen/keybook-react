@@ -2,14 +2,21 @@ import React, {Fragment} from 'react';
 import {Header, Grid, Input, Divider} from 'semantic-ui-react';
 import SideNav from './SideNav';
 import DeviceList from './DeviceList';
+import {searchDevices} from '../actions/devices';
 import {connect} from 'react-redux';
 
 class Search extends React.Component {
 
   state = {searchString: ''}
 
+  handleSearch = (searchString) => {
+    this.props.dispatch(searchDevices(searchString));
+  }
+
   handleSearchChange = (e) => {
     this.setState({ searchString: e.target.value})
+    if (this.state.searchString.length >= 3)
+      this.handleSearch(this.state.searchString)
   }
 
   render() {
