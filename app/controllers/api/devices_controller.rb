@@ -19,14 +19,13 @@ class Api::DevicesController < ApplicationController
   end
 
   def search
-    results = select('devices.*')
-              .where("devices.ip_address LIKE #{@query}")
+    results = Device.select('*').where("devices.location LIKE '#{@query}'")
     render json: results
   end
 
   private
 
   def set_query
-    @query = params[:q]
+    @query = params[:query]
   end
 end
