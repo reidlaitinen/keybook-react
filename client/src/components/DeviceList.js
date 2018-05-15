@@ -1,5 +1,5 @@
 import React from 'react';
-import {Header} from 'semantic-ui-react';
+import {Header, Table} from 'semantic-ui-react';
 import {connect} from 'react-redux';
 
 class DeviceList extends React.Component {
@@ -12,7 +12,7 @@ class DeviceList extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    
+    devices: state.devices
   }
 }
 
