@@ -1,9 +1,15 @@
 import React from 'react';
+import {setView} from '../actions/sideNav';
 
-const Device = () => {
+class Device extends React.Component {
 
-  return <div>Device Component</div>
-  
+  render() {
+
+    let {device} = this.props;
+
+    return <div>Device {device.name}</div>
+
+  }
 }
 
 export default Device;

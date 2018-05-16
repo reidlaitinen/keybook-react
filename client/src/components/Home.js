@@ -1,6 +1,7 @@
 import React, { Component} from 'react';
 import Search from './Search';
 import AllDevices from './AllDevices';
+import Device from './Device';
 import UserManagement from './UserManagement';
 import {connect} from 'react-redux';
 
@@ -16,6 +17,8 @@ class Home extends Component {
         return <AllDevices />
       case 'userMgmt':
         return <UserManagement />
+      case 'device':
+        return <Device />
       default:
         return <Search />
     }

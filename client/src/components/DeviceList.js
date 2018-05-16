@@ -1,26 +1,16 @@
 import React, {Fragment} from 'react';
 import {Header, Table} from 'semantic-ui-react';
 import {connect} from 'react-redux';
+import {setView} from '../actions/sideNav';
 
 class DeviceList extends React.Component {
 
-  resultsTable = () => {
-    let {devices} = this.props;
-    if (devices !== null) {
-      console.log('devices not nul')
-      devices.map( d => {
-        <Table.Row>
-          <Table.Cell>{d.name}</Table.Cell>
-          <Table.Cell>{d.ip_address}</Table.Cell>
-          <Table.Cell>{d.location}</Table.Cell>
-        </Table.Row>
-      })
-    }
-    else {console.log('devices null')}
+  handleDeviceClick = () => {
+    this.props.dispatch(setView(name));
   }
 
   render() {
-    let devices = this.props.devices;
+    let {devices} = this.props;
     return (
       <Fragment>
         <Table striped>
