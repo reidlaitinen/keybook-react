@@ -6,7 +6,7 @@ import {setView} from '../actions/sideNav';
 class DeviceList extends React.Component {
 
   handleDeviceClick = () => {
-    this.props.dispatch(setView(name));
+    this.props.dispatch(setView('device'));
   }
 
   render() {
@@ -23,7 +23,7 @@ class DeviceList extends React.Component {
           </Table.Header>
           <Table.Body>
           {devices.map( d => (
-            <Table.Row>
+            <Table.Row style={styles.pointer} onClick={() => this.handleDeviceClick}>
               <Table.Cell>{d.name}</Table.Cell>
               <Table.Cell>{d.ip_address}</Table.Cell>
               <Table.Cell>{d.location}</Table.Cell>
@@ -35,6 +35,12 @@ class DeviceList extends React.Component {
     ) 
   }
 
+}
+
+const styles = {
+  pointer: {
+    cursor: 'pointer'
+  }
 }
 
 const mapStateToProps = (state) => {
