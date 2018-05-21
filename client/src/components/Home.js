@@ -3,7 +3,7 @@ import Search from './Search';
 import AllDevices from './AllDevices';
 import Device from './Device';
 import UserManagement from './UserManagement';
-import Settings from './DataManagement';
+import Settings from './Settings';
 import {connect} from 'react-redux';
 
 class Home extends Component {
