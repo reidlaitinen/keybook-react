@@ -4,13 +4,15 @@ import flash from './flash';
 import sideNav from './sideNav';
 import devices from './devices';
 import device from './device';
+import searchString from './searchString';
 
 const rootReducer = combineReducers({
   user,
   flash,
   sideNav,
   devices,
-  device
+  device,
+  searchString
 });
 
 export default rootReducer;

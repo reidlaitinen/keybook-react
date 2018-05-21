@@ -7,7 +7,7 @@ import {connect} from 'react-redux';
 
 class Search extends React.Component {
 
-  state = {searchString: ''}
+  state = {searchString: this.props.searchString}
 
   handleSearch = (searchString) => {
     this.props.dispatch(searchDevices(searchString));
@@ -47,7 +47,7 @@ class Search extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    
+    searchString: state.searchString
   }
 }
 
