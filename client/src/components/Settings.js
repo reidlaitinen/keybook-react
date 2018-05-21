@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react'
 
-class DataManagement extends React.Component {
+class Settings extends React.Component {
 
   render() {
 
@@ -12,4 +12,4 @@ class DataManagement extends React.Component {
   }
 }
 
-export default DataManagement;
+export default Settings;

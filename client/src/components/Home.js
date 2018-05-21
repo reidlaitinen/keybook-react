@@ -3,7 +3,7 @@ import Search from './Search';
 import AllDevices from './AllDevices';
 import Device from './Device';
 import UserManagement from './UserManagement';
-import DataManagement from './DataManagement';
+import Settings from './DataManagement';
 import {connect} from 'react-redux';
 
 class Home extends Component {
@@ -16,8 +16,8 @@ class Home extends Component {
         return <Search />
       case 'allDevices':
         return <AllDevices />
-      case 'dataMgmt':
-        return <DataManagement />
+      case 'settings':
+        return <Settings />
       case 'userMgmt':
         return <UserManagement />
       case 'device':
