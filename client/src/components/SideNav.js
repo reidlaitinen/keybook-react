@@ -23,7 +23,7 @@ class SideNav extends React.Component {
           All Devices
         </Menu.Item>
         <Menu.Item name='settings' active={activeItem === 'settings'} onClick={this.handleItemClick}>
-          Data Management
+          Settings
         </Menu.Item>
         <Menu.Item name='userMgmt' active={activeItem === 'userMgmt'} onClick={this.handleItemClick}>
           User Management
