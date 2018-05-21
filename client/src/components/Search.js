@@ -8,22 +8,27 @@ import {connect} from 'react-redux';
 
 class Search extends React.Component {
 
-  state = {searchString: this.props.searchString}
+  // state = {searchString: this.props.searchString}
+
+  componentDidMount() {
+    if (this.props.searchString.length >= 3) {
+      this.props.dispatch(searchDevices(this.props.searchString))
+    }
+  }
 
   handleSearch = (searchString) => {
     this.props.dispatch(searchDevices(searchString));
-    this.props.dispatch(setSearchString(searchString));
   }
 
   handleSearchChange = (e) => {
-    this.setState({ searchString: e.target.value})
-    if (this.state.searchString.length >= 3)
-      this.handleSearch(this.state.searchString)
+    this.props.dispatch(setSearchString(e.target.value))
+    if (this.props.searchString.length >= 3)
+      this.handleSearch(this.props.searchString)
   }
 
   render() {
 
-    let {searchString } = this.state
+    let {searchString } = this.props
 
     let placeholder;
     if (searchString === "") {
