@@ -3,6 +3,7 @@ import {Header, Grid, Input, Divider} from 'semantic-ui-react';
 import SideNav from './SideNav';
 import DeviceList from './DeviceList';
 import {searchDevices} from '../actions/devices';
+import {setSearchString} from '../actions/searchString';
 import {connect} from 'react-redux';
 
 class Search extends React.Component {
@@ -11,6 +12,7 @@ class Search extends React.Component {
 
   handleSearch = (searchString) => {
     this.props.dispatch(searchDevices(searchString));
+    this.props.dispatch(setSearchString(searchString));
   }
 
   handleSearchChange = (e) => {
@@ -23,6 +25,13 @@ class Search extends React.Component {
 
     let {searchString } = this.state
 
+    let placeholder;
+    if (searchString === "") {
+      placeholder = 'Search...'
+    } else {
+      placeholder = searchString
+    }
+
     return (
       <Fragment>
         <Header as='h1' textAlign='center'>Search!</Header>
@@ -31,7 +40,7 @@ class Search extends React.Component {
             <SideNav activeItem='search' />
           </Grid.Column>
           <Grid.Column width={10}>
-            <Input fluid icon='search' placeholder='Search...' autoFocus='true' onChange={this.handleSearchChange}/>
+            <Input fluid icon='search' placeholder={placeholder} autoFocus='true' onChange={this.handleSearchChange}/>
             <Divider hidden />
             {searchString.length !== null && searchString.length >= 3 ? <DeviceList /> : null}
           </Grid.Column>
