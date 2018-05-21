@@ -2,10 +2,12 @@ import React, {Fragment} from 'react';
 import {Header, Table} from 'semantic-ui-react';
 import {connect} from 'react-redux';
 import {setView} from '../actions/sideNav';
+import {getDevice} from '../actions/device';
 
 class DeviceList extends React.Component {
 
-  handleDeviceClick = () => {
+  handleDeviceClick = (id) => {
+    this.props.dispatch(getDevice(id))
     this.props.dispatch(setView('device'));
   }
 
@@ -23,7 +25,7 @@ class DeviceList extends React.Component {
           </Table.Header>
           <Table.Body>
           {devices.map( d => (
-            <Table.Row style={styles.pointer} onClick={() => this.handleDeviceClick}>
+            <Table.Row style={styles.pointer} onClick={() => this.handleDeviceClick(d.id)}>
               <Table.Cell>{d.name}</Table.Cell>
               <Table.Cell>{d.ip_address}</Table.Cell>
               <Table.Cell>{d.location}</Table.Cell>

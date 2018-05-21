@@ -1,5 +1,6 @@
 import React from 'react';
 import {setView} from '../actions/sideNav';
+import {connect} from 'react-redux';
 
 class Device extends React.Component {
 
@@ -10,6 +11,13 @@ class Device extends React.Component {
     return <div>Device {device.name}</div>
 
   }
+
 }
 
-export default Device;
+const mapStateToProps = (state) => {
+  return {
+    device: state.device
+  }
+}
+
+export default connect(mapStateToProps)(Device);

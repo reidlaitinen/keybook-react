@@ -25,3 +25,9 @@ export const searchDevices = (query) => {
       });
   }
 }
+
+export const setDevice = (id) => {
+  return(dispatch) => {
+    dispatch({ type: 'SET_DEVICE', device: id})
+  }
+}

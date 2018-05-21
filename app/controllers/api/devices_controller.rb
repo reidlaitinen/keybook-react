@@ -1,6 +1,7 @@
 class Api::DevicesController < ApplicationController
 
   before_action :set_query, only: [:search]
+  before_action :set_device, only: [:update, :delete, :show]
 
   def create
   end
@@ -16,6 +17,7 @@ class Api::DevicesController < ApplicationController
   end
 
   def show
+    render json: Device.find(@device)
   end
 
   def search
@@ -28,6 +30,10 @@ class Api::DevicesController < ApplicationController
   end
 
   private
+
+  def set_device
+    @device = params[:id]
+  end
 
   def set_query
     @query = params[:query]
