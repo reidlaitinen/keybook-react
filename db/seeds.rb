@@ -18,3 +18,16 @@
   Device.create(ip_address: ip, name: name, location: location, category: category)
 end
 
+@devices = Device.all
+
+@devices.each_with_index do |d, i|
+  device_id = i
+  telnet_url = "telnet://#{d.ip_address}"
+  http_url = "http://#{d.ip_address}"
+  username = "user_#{d.name}"
+  password = "pass_#{d.name}"
+  notes = Faker::Hipster.paragraphs(1)
+  Credential.create(device_id: device_id, url: telnet_url, username: username, password: password, category: "telnet", notes: notes)
+  Credential.create(device_id: device_id, url: http_url, username: username, password: password, category: "http", notes: notes)
+end
+
