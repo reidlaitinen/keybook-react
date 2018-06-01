@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react';
-import {Header, Grid, Input, Divider} from 'semantic-ui-react';
+import {Header, Grid, Input, Divider, Card, Form} from 'semantic-ui-react';
 import SideNav from './SideNav';
 import {setView} from '../actions/sideNav';
 import {connect} from 'react-redux';
@@ -12,15 +12,17 @@ class Device extends React.Component {
 
     return (
       <Fragment>
-        <Header as='h1' textAlign='center'>Search!</Header>
+        <Header as='h1' textAlign='center'>Device Details</Header>
         <Grid columns='equal' padded>
           <Grid.Column>
             <SideNav activeItem={sideNav} />
           </Grid.Column>
           <Grid.Column width={10}>
-            <Header as='h1'>Device Info</Header>
-            <Header as='h2'>{device.name}</Header>
-            <Divider hidden />
+              <Card fluid
+                header={device.name}
+                meta={device.ip_address}
+                description={device.description}
+              />
           </Grid.Column>
           <Grid.Column>
           </Grid.Column>
