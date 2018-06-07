@@ -12,10 +12,11 @@
 
 100.times do |i|
   ip = Faker::Internet.private_ip_v4_address
+  description = Faker::Hipster.paragraph(1)
   name = "Device #{i}"
   location = @locations.sample
   category = @categories.sample
-  Device.create(ip_address: ip, name: name, location: location, category: category)
+  Device.create(ip_address: ip, name: name, location: location, category: category, description: description)
 end
 
 @devices = Device.all
