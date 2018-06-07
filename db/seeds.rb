@@ -6,9 +6,23 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+def generate_model_number
+  model_number = ''
+  3.times do
+    model_number += (0..1).map { (65 + rand(26)).chr }.join
+  end
+  model_number += '-'
+  4.times do
+    model_number += rand(0..9).to_s
+  end
+
+  return model_number
+
+end
 
 @locations = ["Park City", "Salt Lake City", "Ogden", "Provo", "Orem", "St. George"]
 @categories = ["MFP", "Router", "Switch", "Server", "Other"]
+@mfgs = ["Cisco", "Dell", "HP", "IBM", "Sharp", "Xerox", "Apple", "Hooli"]
 
 100.times do |i|
   ip = Faker::Internet.private_ip_v4_address
@@ -16,7 +30,20 @@
   name = "Device #{i}"
   location = @locations.sample
   category = @categories.sample
-  Device.create(ip_address: ip, name: name, location: location, category: category, description: description)
+  serial_number = Faker::Vehicle.vin
+  model_number = generate_model_number
+  deployed_date = Faker::Date.backward(1200)
+  mfg = @mfgs.sample
+  Device.create(ip_address: ip, 
+                name: name, 
+                location: location, 
+                category: category, 
+                description: description, 
+                mfg: mfg,
+                deployed_date: deployed_date,
+                serial_number: serial_number, 
+                model_number: model_number,
+                deleted: false)
 end
 
 @devices = Device.all
