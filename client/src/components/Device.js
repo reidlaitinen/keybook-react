@@ -6,6 +6,10 @@ import {connect} from 'react-redux';
 
 class Device extends React.Component {
 
+  getDeviceCreds = () => {
+    
+  }
+
   render() {
 
     let {device, sideNav} = this.props;
@@ -23,6 +27,9 @@ class Device extends React.Component {
                 meta={device.ip_address}
                 description={device.description}
               />
+              <Card.Group>
+
+              </Card.Group>
           </Grid.Column>
           <Grid.Column>
           </Grid.Column>

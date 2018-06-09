@@ -1,4 +1,7 @@
 class Api::CredentialsController < ApplicationController
+
+  before_action :set_device, only: [:index]
+
   def create
   end
 
@@ -13,4 +16,11 @@ class Api::CredentialsController < ApplicationController
 
   def show
   end
+
+  private
+
+  def set_device
+    @device = params[:id]
+  end
+
 end
