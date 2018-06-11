@@ -49,7 +49,7 @@ end
 @devices = Device.all
 
 @devices.each_with_index do |d, i|
-  device_id = i
+  device_id = d.id
   telnet_url = "telnet://#{d.ip_address}"
   http_url = "http://#{d.ip_address}"
   username = "user_#{d.name}"

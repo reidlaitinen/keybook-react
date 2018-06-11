@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   get '/api/devices/search', to: 'api/devices#search'
   
   namespace :api do
-    resources :devices
-    resources :credentials
+    resources :devices do
+      resources :credentials
+    end
   end
 
   

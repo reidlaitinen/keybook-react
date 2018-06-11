@@ -6,6 +6,7 @@ class Api::CredentialsController < ApplicationController
   end
 
   def index
+    render json: Credential.where(device_id: @device)
   end
 
   def update
@@ -20,7 +21,7 @@ class Api::CredentialsController < ApplicationController
   private
 
   def set_device
-    @device = params[:id]
+    @device = params[:device_id]
   end
 
 end
