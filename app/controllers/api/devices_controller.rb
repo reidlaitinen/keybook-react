@@ -13,11 +13,12 @@ class Api::DevicesController < ApplicationController
   def update
   end
 
-  def delete
+  def destroy
+    @device.destroy
   end
 
   def show
-    render json: Device.find(@device)
+    render json: @device
   end
 
   def search
@@ -32,7 +33,7 @@ class Api::DevicesController < ApplicationController
   private
 
   def set_device
-    @device = params[:id]
+    @device = Device.find(params[:id])
   end
 
   def set_query
