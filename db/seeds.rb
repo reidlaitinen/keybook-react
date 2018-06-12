@@ -55,7 +55,19 @@ end
   username = "user_#{d.name}"
   password = "pass_#{d.name}"
   notes = Faker::Hipster.paragraphs(1)
-  Credential.create(device_id: device_id, url: telnet_url, username: username, password: password, category: "telnet", notes: notes, primary: true)
-  Credential.create(device_id: device_id, url: http_url, username: username, password: password, category: "http", notes: notes, primary: false)
+  Credential.create(device_id: device_id, 
+                    url: telnet_url, 
+                    username: username, 
+                    password: password, 
+                    category: "telnet", 
+                    notes: notes, 
+                    primary: true)
+  Credential.create(device_id: device_id, 
+                    url: http_url, 
+                    username: username, 
+                    password: password, 
+                    category: "http", 
+                    notes: notes, 
+                    primary: false)
 end
 
