@@ -6,3 +6,5 @@ const credentials = (state = [], action ) => {
       return state
   }
 }
+
+export default credentials;
