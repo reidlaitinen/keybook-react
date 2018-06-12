@@ -5,6 +5,7 @@ import sideNav from './sideNav';
 import devices from './devices';
 import device from './device';
 import searchString from './searchString';
+import credentials from './credentials';
 
 const rootReducer = combineReducers({
   user,
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
   sideNav,
   devices,
   device,
-  searchString
+  searchString,
+  credentials
 });
 
 export default rootReducer;
