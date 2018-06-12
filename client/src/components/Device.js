@@ -5,7 +5,12 @@ import {setView} from '../actions/sideNav';
 import {getDeviceCreds} from '../actions/credentials';
 import {connect} from 'react-redux';
 
+
 class Device extends React.Component {
+
+  getDeviceCreds = () => {
+    this.props.dispatch(getDeviceCreds(this.props.device.id))
+  }
 
   componentDidMount() {
     this.props.dispatch(getDeviceCreds(this.props.device.id));
@@ -23,13 +28,19 @@ class Device extends React.Component {
             <SideNav activeItem={sideNav} />
           </Grid.Column>
           <Grid.Column width={10}>
-              <Card fluid
-                header={device.name}
-                meta={device.ip_address}
-                description={device.description}
-              />
+              <Card fluid>
+                <Card.Header as='h2'>{device.name}</Card.Header>
+                <Card.Meta>{device.ip_address}</Card.Meta>
+                <Divider hidden />
+                <Card.Description>
+                  <p>Description: {device.description}</p>
+                  <p>MFG: {device.mfg}</p>
+                  <p>Model No.: {device.model_number}</p>
+                  <p>Serial No.: {device.serial_number}</p>
+                </Card.Description>
+              </Card>
               <Card.Group>
-
+                
               </Card.Group>
           </Grid.Column>
           <Grid.Column>
