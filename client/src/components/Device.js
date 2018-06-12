@@ -2,17 +2,18 @@ import React, {Fragment} from 'react';
 import {Header, Grid, Input, Divider, Card, Form} from 'semantic-ui-react';
 import SideNav from './SideNav';
 import {setView} from '../actions/sideNav';
+import {getDeviceCreds} from '../actions/credentials';
 import {connect} from 'react-redux';
 
 class Device extends React.Component {
 
-  getDeviceCreds = () => {
-    
+  componentDidMount() {
+    this.props.dispatch(getDeviceCreds(this.props.device.id));
   }
 
   render() {
 
-    let {device, sideNav} = this.props;
+    let {device, sideNav, credentials} = this.props;
 
     return (
       <Fragment>
@@ -44,7 +45,8 @@ class Device extends React.Component {
 const mapStateToProps = (state) => {
   return {
     device: state.device,
-    sideNav: state.sideNav
+    sideNav: state.sideNav,
+    credentials: state.credentials
   }
 }
 
