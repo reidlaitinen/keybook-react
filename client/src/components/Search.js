@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react';
-import {Header, Grid, Input, Divider} from 'semantic-ui-react';
+import {Header, Grid, Input, Divider, Button} from 'semantic-ui-react';
 import SideNav from './SideNav';
 import DeviceList from './DeviceList';
 import {searchDevices} from '../actions/devices';
