@@ -26,6 +26,10 @@ class Search extends React.Component {
       this.handleSearch(this.props.searchString)
   }
 
+  clearSearch = () => {
+    this.props.dispatch(setSearchString(""));
+  }
+
   render() {
 
     let {searchString } = this.props
@@ -45,6 +49,7 @@ class Search extends React.Component {
             <SideNav activeItem='search' />
           </Grid.Column>
           <Grid.Column width={10}>
+            <Button onClick={this.clearSearch}>Clear</Button>
             <Input fluid icon='search' placeholder={placeholder} autoFocus='true' onChange={this.handleSearchChange}/>
             <Divider hidden />
             {searchString.length !== null && searchString.length >= 3 ? <DeviceList /> : null}
